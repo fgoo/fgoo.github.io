@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html class="with-statusbar-overlay">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<title>Resgate</title>
+<!-- 	<base href="/"> -->
+	<link rel="stylesheet" href="lib/css/framework7.css">
+	<link rel="stylesheet" href="css/app.css">
+	<script type="text/javascript" src="cars.js"></script>
+	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<!-- Progressive Web App -->
+	<link rel="manifest" href="manifest.json">
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Resgate">
+    <link rel="apple-touch-icon" href="res/icons/ios/icon-76@2x.png">
+    <!-- Windows -->
+    <meta name="msapplication-TileImage" content="res/icons/ios/icon-72@2x.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+    <link rel="shortcut icon" type="image/png" href="res/icons/ios/icon-72@2x.png">
+<!-- Progressive Web App -->
+</head>
+<body>
+    <!-- Views-->
+<div class="views">
+<div class="view view-main navbar-fixed">
+<div class="navbar theme-white">
+<div class="navbar-inner">
+	<div class="center sliding contacts-list-header">Resgate</div>
+</div>
+</div>
+<div class="pages">
+<div data-page="list" class="page">
+<!-- Search bar -->
+<form class="searchbar" data-search-list=".contacts-list" data-search-in=".item-title">
+<div class="searchbar-input">
+	<input type="search" placeholder="Search" id="myInput" onkeyup="mySearch()">
+	<a href="#" class="searchbar-clear" onclick="setTimeout(mySearch, 300)"></a>
+</div>
+<a href="#" class="searchbar-cancel" onclick="setTimeout(mySearch, 300)">Cancel</a>
+</form>
+
+<!-- Search bar overlay-->
+<div class="searchbar-overlay"></div>
+
+<div class="page-content">
+
+<!-- Buttons -->
+<script language="javascript" type="text/javascript"> 
+var brands = getBrands();
+
+//INIT Brands Buttons
+var myButtons = "<div id='myButtons'>";
+for (var i = 0; i < brands.length; i++) {
+  myButtons+= "<div class='row'>";
+  var x = "filtered.html?brand=" + brands[i]['carManufacturer'];
+  myButtons+= "<div class='column'><img src='img/brandlogo/" + brands[i]['brandLogo'] + ".jpg' style='width:100%' onclick='location.href = \"" + x + "\"'></div>";
+  i++;
+  if (i < brands.length){
+  var x = "filtered.html?brand=" + brands[i]['carManufacturer'];
+  myButtons+= "<div class='column'><img src='img/brandlogo/" + brands[i]['brandLogo'] + ".jpg' style='width:100%' onclick='location.href = \"" + x + "\"'></div>";
+  i++;
+  }
+  if (i < brands.length){
+  var x = "filtered.html?brand=" + brands[i]['carManufacturer'];
+  myButtons+= "<div class='column'><img src='img/brandlogo/" + brands[i]['brandLogo'] + ".jpg' style='width:100%' onclick='location.href = \"" + x + "\"'></div>";
+  }
+  myButtons+= "</div>";
+}
+myButtons+= "</div>";
+document.write(myButtons);
+//END Brands Buttons
+</script>
+<!-- Button End -->
+
+<!-- List -->
+<script language="javascript" type="text/javascript">	
+
+var cars = getCars();
+
+//INIT full Table List of Cars
+var myTable= "<table id='myTable' class='contacts-list'>";
+for (var i = 0; i < cars.length; i++) {
+	//var x = "img/carimage/" + cars[i]['carImage'] + ".jpg";
+    var x = "zoom.html?image=" + cars[i]['carImage'];
+	myTable+= "<tr onclick='location.href = \"" + x + "\"' style='cursor:pointer; display:none'>";
+	myTable+= "<td class='staticCell'><img src='img/brandlogo/" + cars[i]['brandLogo'] + ".jpg' width='44'></td>";
+	myTable+= "<td class='flexibleCell'><b class='item-title'>" + cars[i]['carManufacturer'] + " " + cars[i]['carModel'] + "</b><br><b class='item-subtitle'>" + cars[i]['carYear'] + "</b></td>";
+	myTable+= "</tr>";
+}
+myTable+= "</table>";
+document.write(myTable);
+//END full Table List of Cars
+</script>
+<!-- List End -->
+
+<!-- Progressive Web App -->
+<script type="text/javascript">
+(function() {
+  'use strict';
+
+  window.onload = function() {
+    let message = localStorage.getItem("message") || 'Your message will display here';
+    $('#message').html(message);
+    $('#display').html(message);
+  }
+
+  $('#button').click(() => {
+    console.log('click')
+    let message = $('#message').val();
+    console.log(message);
+    $('#display').html(message);
+    localStorage.setItem("message", message);
+  });
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+             .register('./service-worker.js')
+             .then(function() { console.log('Service Worker Registered'); });
+  }
+
+})();
+</script>
+<!-- Progressive Web App -->
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="lib/framework7.js"></script>
+<script data-main="app" src="lib/require.js"></script>
