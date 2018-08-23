@@ -1,0 +1,54 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Resgate</title>
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <!-- ## Setup -->
+  <!--
+    Import the `amp-social-share` component in the header.
+  -->
+  <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+  <!--
+    Ensure you've configured your canonical URL.
+  -->
+  <link rel="canonical" href="https://fgoo.github.io/">
+
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+  <!-- ## Styling -->
+  <!-- Custom styling for `<amp-social-share>`. -->
+
+  <style amp-custom>
+    amp-social-share.custom-style {
+      background-color: #008080;
+      background-image: url('https://raw.githubusercontent.com/google/material-design-icons/master/social/1x_web/ic_share_white_48dp.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    amp-social-share.rounded {
+      border-radius: 50%;
+      background-size: 60%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- For example, you can tweak the background size and border radius to acheive a rounded look. Reference the `.rounded` css class from the Styling section above for the effect below. -->
+
+  <div>
+    <amp-social-share class="rounded" type="email" width="36" height="36"></amp-social-share>
+    <amp-social-share class="rounded" type="facebook" data-param-app_id="254325784911610" width="36" height="36"></amp-social-share>
+    <amp-social-share class="rounded" type="gplus" width="36" height="36"></amp-social-share>
+    <amp-social-share class="rounded" type="linkedin" width="36" height="36"></amp-social-share>
+    <amp-social-share class="rounded" type="pinterest" data-param-media="https://fgoo.github.io/icon.png" width="36" height="36"></amp-social-share>
+    <amp-social-share class="rounded" type="tumblr" width="36" height="36"></amp-social-share>
+    <amp-social-share class="rounded" type="twitter" width="36" height="36"></amp-social-share>
+    <amp-social-share class="rounded" type="whatsapp" width="36" height="36"></amp-social-share>
+    <amp-social-share class="rounded" type="line" width="36" height="36"></amp-social-share>
+  </div>
+
+</body>
+</html>
