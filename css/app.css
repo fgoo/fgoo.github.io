@@ -338,3 +338,73 @@ html.android .list-block .list-group-title {
 #myButtons:hover .image {
   opacity: 0.5;
 }
+
+.wrapper {
+      text-align: center;
+      list-style: none;
+      margin:0; padding:0;
+      text-decoration: none;
+    }
+    .wrapper ul {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        /* For IE, the outcast */
+        zoom:1;
+        *display: inline;
+        list-style: none;
+        width: 100%;
+    }
+    .wrapper li {
+        float: left;
+        padding: 2px 5px;
+        margin-top: 1px; /* -1 to Prevent double borders */
+        margin-left: 1px;
+        margin-right: 1px;
+        width: 100%;
+        /*width: 300px;*/
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+        /*border: 1px solid #ddd;*/
+        border-radius: 5px;
+    }
+    .wrapper li:hover:not(.header) {
+        background-color: #eee;
+    }
+    .wrapper div {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding-top: 5px;
+    }
+    .wrapper img{
+      width:50px; 
+      height:50px;
+      display:block;
+      float:left;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      margin-left: 5px;
+      margin-right: 5px;
+      border-radius: 5px;
+    }
+    .wrapper a{
+        text-decoration: none;
+    }
+    .wrapper h3{
+        text-align: left;
+        list-style: none;
+        margin:0; padding:0;
+        padding-left: 70px;
+        text-decoration: none;
+        color: black;
+    }
+    .wrapper p{
+        text-align: left;
+        list-style: none;
+        margin:0; padding:0;
+        padding-left: 70px;
+        text-decoration: none;
+        color: gray;
+    }

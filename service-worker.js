@@ -3,8 +3,6 @@ var cacheName = 'resgate';
 var filesToCache = [
   '/',
  "./css/app.css",
- "./img/brandlogo/audi.jpg",
- "./img/carimage/sheet_18.jpg",
  "./js/impetus.js",
  "./js/pinch-zoom-canvas.js",
  "./js/jquery-3.3.1.js",
@@ -12,7 +10,8 @@ var filesToCache = [
  "./lib/require.js",
  "./lib/css/framework7.css",
  "./app.js",
- "./cars.js",
+ "./carslist.js",
+ "./functions.js",
  "./config.xml",
  "./filtered.html",
  "./icon.png",
@@ -21,6 +20,10 @@ var filesToCache = [
  "./service-worker.js",
  "./zoom.html"
 ];
+
+filesToCache.push("./img/carimage/sheet_18.jpg");
+
+console.log(carslist);
 
 self.addEventListener('install', function(e) {
   console.log('[ServiceWorker] Install');

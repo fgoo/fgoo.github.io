@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html class="with-statusbar-overlay" prefix="og: http://ogp.me/ns#">
+<html class="with-statusbar-overlay">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<title>Resgate</title>
-	<link rel="canonical" href="https://fgoo.github.io/">
-    <base href="https://fgoo.github.io/">
 	<link rel="stylesheet" href="lib/css/framework7.css">
 	<link rel="stylesheet" href="css/app.css">
-	<script type="text/javascript" src="cars.js"></script>
-	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
-
+	<link href="img/brandlogo/bombeiros_icon.png" rel="shortcut icon">
+	<script type="text/javascript" src="carslist.js"></script>
+  <script type="text/javascript" src="functions.js"></script>
 <!-- Share -->
   <meta property="og:url"           content="https://fgoo.github.io/" />
   <meta property="og:type"          content="website" />
   <meta property="og:title"         content="Resgate" />
   <meta property="og:description"   content="Bombeiros de São Paulo" />
   <meta property="og:image"         content="https://fgoo.github.io/icon.png" />
-<!-- Share -->	
-	
+<!-- Share -->  
+  
 <!-- Progressive Web App -->
-	<link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="manifest.json">
     <!-- Add to home screen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -42,11 +40,10 @@
     enable_page_level_ads: true
   });
 </script>
-<!-- ADSense -->
-
+<!-- ADSense -->  
 </head>
 <body>
-<!-- Views-->
+    <!-- Views-->
 <div class="views">
 <div class="view view-main navbar-fixed">
 <div class="navbar theme-white">
@@ -59,10 +56,10 @@
 <!-- Search bar -->
 <form class="searchbar" data-search-list=".contacts-list" data-search-in=".item-title">
 <div class="searchbar-input">
-	<input type="search" placeholder="Search" id="myInput" onkeyup="mySearch()">
-	<a href="#" class="searchbar-clear" onclick="setTimeout(mySearch, 300)"></a>
+	<input type="search" placeholder="Search" id="myInput" onkeyup="myFunction()">
+	<a href="#" class="searchbar-clear" onclick="setTimeout(myFunction, 300)"></a>
 </div>
-<a href="#" class="searchbar-cancel" onclick="setTimeout(mySearch, 300)">Cancel</a>
+<a href="#" class="searchbar-cancel" onclick="setTimeout(myFunction, 300)">Cancel</a>
 </form>
 
 <!-- Search bar overlay-->
@@ -99,55 +96,30 @@ document.write(myButtons);
 <!-- Button End -->
 
 <!-- List -->
+<div class="wrapper">
 <script language="javascript" type="text/javascript">	
 
 var cars = getCars();
 
 //INIT full Table List of Cars
-var myTable= "<table id='myTable' class='contacts-list'>";
+var myTable= "<ul id='myUL'>";
 for (var i = 0; i < cars.length; i++) {
 	//var x = "img/carimage/" + cars[i]['carImage'] + ".jpg";
     var x = "zoom.html?image=" + cars[i]['carImage'];
-	myTable+= "<tr onclick='location.href = \"" + x + "\"' style='cursor:pointer; display:none'>";
-	myTable+= "<td class='staticCell'><img src='img/brandlogo/" + cars[i]['brandLogo'] + ".jpg' width='44'></td>";
-	myTable+= "<td class='flexibleCell'><b class='item-title'>" + cars[i]['carManufacturer'] + " " + cars[i]['carModel'] + "</b><br><b class='item-subtitle'>" + cars[i]['carYear'] + "</b></td>";
-	myTable+= "</tr>";
+    myTable+= "<li onclick='location.href = \"" + x + "\"' style='cursor:pointer; display:none'>";
+    myTable+= "<img alt=" + cars[i]['brandLogo'] + " src='img/brandlogo/" + cars[i]['brandLogo'] + ".jpg'/><div>";
+    myTable+= "<h3>" + cars[i]['carManufacturer'] + " " + cars[i]['carModel'] + "</h3><p>" + cars[i]['carYear'] + "</p></div></li>";
+	//myTable+= "<tr onclick='location.href = \"" + x + "\"' style='cursor:pointer; display:none'>";
+	//myTable+= "<td class='staticCell'><img src='img/brandlogo/" + cars[i]['brandLogo'] + ".jpg' width='44'></td>";
+	//myTable+= "<td class='flexibleCell'><b class='item-title'>" + cars[i]['carManufacturer'] + " " + cars[i]['carModel'] + "</b><br><b class='item-subtitle'>" + cars[i]['carYear'] + "</b></td>";
+	//myTable+= "</tr>";
 }
-myTable+= "</table>";
+myTable+= "</ul>";
 document.write(myTable);
 //END full Table List of Cars
 </script>
+</div>
 <!-- List End -->
-
-<!-- Progressive Web App -->
-<script type="text/javascript">
-(function() {
-  'use strict';
-
-  window.onload = function() {
-    let message = localStorage.getItem("message") || 'Your message will display here';
-    $('#message').html(message);
-    $('#display').html(message);
-  }
-
-  $('#button').click(() => {
-    console.log('click')
-    let message = $('#message').val();
-    console.log(message);
-    $('#display').html(message);
-    localStorage.setItem("message", message);
-  });
-
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker
-             .register('./service-worker.js')
-             .then(function() { console.log('Service Worker Registered'); });
-  }
-
-})();
-</script>
-<!-- Progressive Web App -->
-
 </div>
 </div>
 </div>

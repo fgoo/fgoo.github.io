@@ -6,11 +6,12 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Resgate</title>
-    <base href="https://fgoo.github.io/">
     <link rel="stylesheet" href="lib/css/framework7.css">
+    <link rel="stylesheet" href="lib/css/ionicons.css">
     <link rel="stylesheet" href="css/app.css">
-    <script type="text/javascript" src="cars.js"></script>
-    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <link href="img/brandlogo/bombeiros_icon.png" rel="shortcut icon">
+    <script type="text/javascript" src="carslist.js"></script>
+    <script type="text/javascript" src="functions.js"></script>
 <!-- Progressive Web App -->
     <link rel="manifest" href="manifest.json">
     <!-- Add to home screen for Safari on iOS -->
@@ -59,6 +60,7 @@
 <div class="page-content">
             
 <!-- List -->
+<div class="wrapper">
 <script language="javascript" type="text/javascript">  
 var cars = getCars();
 
@@ -76,23 +78,24 @@ for (var i = 0, l = cars.length; i < l; i++) {
 //alert(brands[1].carModel);
 //END Brands only JSON
 
-var myTable= "<table id='myTable' class='contacts-list'>";
-
+var myTable= "<ul id='myUL'>";
 for (var i = 0; i < brands.length; i++) {
-    //var x = "img/carimage/" + brands[i]['carImage'] + ".jpg";
+    //var x = "img/carimage/" + cars[i]['carImage'] + ".jpg";
     var x = "zoom.html?image=" + brands[i]['carImage'];
-    myTable+= "<tr onclick='location.href = \"" + x + "\"' style='cursor:pointer; display:none'>";
-    myTable+= "<td class='staticCell'><img src='img/brandlogo/" + brands[i]['brandLogo'] + ".jpg' width='44'></td>";
-    myTable+= "<td class='flexibleCell'><b class='item-title'>" + brands[i]['carManufacturer'] + " " + brands[i]['carModel'] + "</b><br><b class='item-subtitle'>" + brands[i]['carYear'] + "</b></td>";
-    myTable+= "</tr>";
+    myTable+= "<li onclick='location.href = \"" + x + "\"' style='cursor:pointer; display:none'>";
+    myTable+= "<img alt=" + brands[i]['brandLogo'] + " src='img/brandlogo/" + brands[i]['brandLogo'] + ".jpg'/><div>";
+    myTable+= "<h3>" + brands[i]['carManufacturer'] + " " + brands[i]['carModel'] + "</h3><p>" + brands[i]['carYear'] + "</p></div></li>";
+    //myTable+= "<tr onclick='location.href = \"" + x + "\"' style='cursor:pointer; display:none'>";
+    //myTable+= "<td class='staticCell'><img src='img/brandlogo/" + cars[i]['brandLogo'] + ".jpg' width='44'></td>";
+    //myTable+= "<td class='flexibleCell'><b class='item-title'>" + cars[i]['carManufacturer'] + " " + cars[i]['carModel'] + "</b><br><b class='item-subtitle'>" + cars[i]['carYear'] + "</b></td>";
+    //myTable+= "</tr>";
 }
-
-myTable+= "</table>";
-
+myTable+= "</ul>";
 document.write(myTable);
 
 myFilter();
 </script>
+</div>
 <!-- List End -->
 </div>
 </div>
