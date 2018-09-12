@@ -318,9 +318,12 @@ html.android .list-block .list-group-title {
   float: left;
   width: 33.33%;
   padding: 5px;
-
   border: 1px solid #ddd;
   border-radius: 5px;
+}
+
+.column:hover {
+  border: 1px solid #888;
 }
 
 /* Clearfix (clear floats) */

@@ -76,16 +76,16 @@ var myButtons = "<div id='myButtons'>";
 for (var i = 0; i < brands.length; i++) {
   myButtons+= "<div class='row'>";
   var x = "filtered.html?brand=" + brands[i]['carManufacturer'];
-  myButtons+= "<div class='column'><img src='img/brandlogo/" + brands[i]['brandLogo'] + ".jpg' style='width:100%' onclick='location.href = \"" + x + "\"'></div>";
+  myButtons+= "<div class='column' style='cursor:pointer'><img src='img/brandlogo/" + brands[i]['brandLogo'] + ".jpg' style='width:100%' onclick='location.href = \"" + x + "\"'></div>";
   i++;
   if (i < brands.length){
   var x = "filtered.html?brand=" + brands[i]['carManufacturer'];
-  myButtons+= "<div class='column'><img src='img/brandlogo/" + brands[i]['brandLogo'] + ".jpg' style='width:100%' onclick='location.href = \"" + x + "\"'></div>";
+  myButtons+= "<div class='column' style='cursor:pointer'><img src='img/brandlogo/" + brands[i]['brandLogo'] + ".jpg' style='width:100%' onclick='location.href = \"" + x + "\"'></div>";
   i++;
   }
   if (i < brands.length){
   var x = "filtered.html?brand=" + brands[i]['carManufacturer'];
-  myButtons+= "<div class='column'><img src='img/brandlogo/" + brands[i]['brandLogo'] + ".jpg' style='width:100%' onclick='location.href = \"" + x + "\"'></div>";
+  myButtons+= "<div class='column' style='cursor:pointer'><img src='img/brandlogo/" + brands[i]['brandLogo'] + ".jpg' style='width:100%' onclick='location.href = \"" + x + "\"'></div>";
   }
   myButtons+= "</div>";
 }
