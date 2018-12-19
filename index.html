@@ -42,7 +42,16 @@
 </script>
 <!-- ADSense -->  
 <body>
-    <!-- Views-->
+<!-- SharingImage -->
+<script>
+  var image_par = getParameterByName('image_og');
+  if (image_par){
+    // Verificar se a imagem está compartilhada dentro do usuario GogoniStudios, por segurança
+    document.querySelector('meta[name="og:image"]').setAttribute("content", image_par);
+  }
+</script>
+<!-- SharingImage -->
+<!-- Views-->
 <div class="views">
 <div class="view view-main navbar-fixed">
 <div class="navbar theme-white">
